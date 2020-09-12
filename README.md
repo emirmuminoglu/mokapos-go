@@ -1,6 +1,5 @@
 # mokapos-go
 
----
 
 A library to entegrate your E-Commerce website with *[Moka Pos](https://www.moka.com/moka-pos/)*
 
@@ -8,7 +7,6 @@ A library to entegrate your E-Commerce website with *[Moka Pos](https://www.moka
 
 # Examples
 
----
 
  - Payment without 3D Secure
 ```go
