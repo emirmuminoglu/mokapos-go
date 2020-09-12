@@ -37,7 +37,7 @@ func main(){
         ExpYear:"2020",
         CvcNumber: "123",
         Amount: 123.123,
-        Currency:"TL"
+        Currency:"TL",
         InstallmentNumber:"1",
     }
 
