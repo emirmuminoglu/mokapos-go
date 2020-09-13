@@ -43,7 +43,7 @@ func main(){
 
     resp, err := m.PaymentNonThreeD(request)
     if err != nil {
-        fmt.Fatalf("An error occured: ", err.Error())
+        fmt.Fatalf("An error occured: %v \n", err.Error())
     }
 
     fmt.Println(resp)
@@ -96,7 +96,7 @@ func main(){
 
     resp, err := m.PaymentWithThreeD(request)
     if err != nil {
-        fmt.Fatalf("An error occured: ", err.Error())
+        fmt.Fatalf("An error occured: %v \n", err.Error())
     }
 
     fmt.Println(resp)
