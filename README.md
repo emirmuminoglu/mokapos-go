@@ -1,7 +1,7 @@
 # mokapos-go
 
 
-A library to entegrate your E-Commerce website with *[Moka Pos](https://www.moka.com/moka-pos/)*
+A client library for *[Moka Pos](https://www.moka.com/moka-pos/)*
 
 **Warning:** It's not tested and still in development! Please check the project and test before use. I don't take any liability.
 
@@ -87,7 +87,7 @@ func main(){
         ExpYear:"2020",
         CvcNumber: "123",
         Amount: 123.123,
-        Currency:"TL"
+        Currency:"TL",
         InstallmentNumber:"1",
         RedirectURL: "https://pos.testmoka.com/DealerPayment/PayResult?MyTrxId=1A2B3CD456",
         RedirectType: 0,
