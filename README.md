@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/emirmuminoglu/mokapos-go)](https://goreportcard.com/report/github.com/emirmuminoglu/mokapos-go)
+
 # mokapos-go
 
 
