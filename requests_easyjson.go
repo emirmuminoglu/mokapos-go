@@ -363,7 +363,7 @@ func easyjson11d1a9baEncodeGithubComEmirmuminogluMokaposGo2(out *jwriter.Writer,
 		}
 		out.String(string(in.Description))
 	}
-	if true{
+	if true {
 		const prefix string = ",\"BuyerInformation\":"
 		if first {
 			first = false
@@ -373,7 +373,7 @@ func easyjson11d1a9baEncodeGithubComEmirmuminogluMokaposGo2(out *jwriter.Writer,
 		}
 		easyjson11d1a9baEncodeGithubComEmirmuminogluMokaposGo3(out, in.BuyerInformation)
 	}
-	if true{
+	if true {
 		const prefix string = ",\"CustomerInformation\":"
 		if first {
 			first = false

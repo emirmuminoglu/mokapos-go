@@ -1,32 +1,32 @@
 package moka
 
 import (
-	"encoding/hex"
-	"crypto/sha256"
 	"bytes"
+	"crypto/sha256"
+	"encoding/hex"
 	"net/http"
 )
 
 type (
 	Moka struct {
 		baseURL string
-		Dealer PaymentDealerAuthentication
-		Client *http.Client
+		Dealer  PaymentDealerAuthentication
+		Client  *http.Client
 	}
 )
 
 func New(code, username, password string, isTest bool) (m *Moka) {
 	m = new(Moka)
 
-	url := "https://service.moka.com"		
+	url := "https://service.moka.com"
 
-	if isTest{
-		url = "https://service.testmoka.com" 
+	if isTest {
+		url = "https://service.testmoka.com"
 	}
-	
+
 	m.baseURL = url
 	m.Dealer = PaymentDealerAuthentication{
-		Code: code,
+		Code:     code,
 		Username: username,
 		Password: password,
 	}
@@ -45,11 +45,10 @@ func (m *Moka) createCheckKey() (str string) {
 	buffer.WriteString(m.Dealer.Password)
 
 	b := buffer.Bytes()
-	
+
 	hash := sha256.Sum256(b)
 
 	str = hex.EncodeToString(hash[:])
 
 	return
 }
-

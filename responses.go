@@ -1,34 +1,33 @@
 package moka
 
 import (
-	jwriter "github.com/mailru/easyjson/jwriter"
 	jlexer "github.com/mailru/easyjson/jlexer"
+	jwriter "github.com/mailru/easyjson/jwriter"
 )
 
 type (
-	
 	ThreeDResponse struct {
-		Data string `json:"Data"`
-		ResultCode string `json:"ResultCode"`
+		Data          string `json:"Data"`
+		ResultCode    string `json:"ResultCode"`
 		ResultMessage string `json:"ResultMessage"`
-		Exception string `json:"Exception"`
+		Exception     string `json:"Exception"`
 	}
 
 	NonTDResponse struct {
 		Data struct {
-			IsSuccessful bool `json:"IsSuccessful"`
-			ResultCode string `json:"ResultCode"`
-			ResultMessage string `json:"ResultMessage"`
-			VirtualPostOrderID string `json:"VirtualPostOrderId"` 
+			IsSuccessful       bool   `json:"IsSuccessful"`
+			ResultCode         string `json:"ResultCode"`
+			ResultMessage      string `json:"ResultMessage"`
+			VirtualPostOrderID string `json:"VirtualPostOrderId"`
 		} `json:"Data"`
-		ResultCode string `json:"ResultCode"`
+		ResultCode    string `json:"ResultCode"`
 		ResultMessage string `json:"ResultMessage"`
-		Exception string `json:"Exception"`
+		Exception     string `json:"Exception"`
 	}
 
-	Response interface{
+	Response interface {
 		Error() error
-		MarshalJSON()([]byte, error)
+		MarshalJSON() ([]byte, error)
 		MarshalEasyJSON(w *jwriter.Writer)
 		UnmarshalEasyJSON(l *jlexer.Lexer)
 		UnmarshalJSON([]byte) error
@@ -37,18 +36,18 @@ type (
 
 func (r ThreeDResponse) Error() (err error) {
 	err = errorSwitch(r.ResultCode)
-	return 
+	return
 }
 
 func (r NonTDResponse) Error() (err error) {
 	err = errorSwitch(r.ResultCode)
-	return 
+	return
 }
 
-func errorSwitch(errCode string) (err error){
-	switch errCode{
+func errorSwitch(errCode string) (err error) {
+	switch errCode {
 	case "success":
-		err = nil 
+		err = nil
 	case "PaymentDealer.CheckPaymentDealerAuthentication.InvalidRequest":
 		err = ErrInvalidRequest
 	case "PaymentDealer.CheckPaymentDealerAuthentication.InvalidAccount":

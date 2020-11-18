@@ -1,28 +1,28 @@
 package moka
 
 import (
-	"net/http"
 	"bytes"
 	"io/ioutil"
+	"net/http"
 )
 
-func (m *Moka) PaymentWithThreeD(pdr PaymentDealerRequest) (Response,error) {
+func (m *Moka) PaymentWithThreeD(pdr PaymentDealerRequest) (Response, error) {
 	return m.doRequest(pdr, "/PaymentDealer/DoDirectPaymentThreeD")
 }
 
-func (m *Moka) PaymentNonThreeD(pdr PaymentDealerRequest)(Response, error){
+func (m *Moka) PaymentNonThreeD(pdr PaymentDealerRequest) (Response, error) {
 	return m.doRequest(pdr, "/PaymentDealer/DoDirectPayment")
 }
 
-func (m *Moka) Capture(pdr PaymentDealerRequest)(Response, error){
+func (m *Moka) Capture(pdr PaymentDealerRequest) (Response, error) {
 	return m.doRequest(pdr, "/PaymentDealer/DoCaputre")
 }
 
-func(m *Moka) doRequest(pdr PaymentDealerRequest, url string) (response Response, err error){
+func (m *Moka) doRequest(pdr PaymentDealerRequest, url string) (response Response, err error) {
 	pdr.Software = "github.com/emirmuminoglu/mokapos-go"
 	r := &Request{
-		PaymentDealerRequest:pdr,
-		PaymentDealerAuthentication:m.Dealer,
+		PaymentDealerRequest:        pdr,
+		PaymentDealerAuthentication: m.Dealer,
 	}
 
 	json, err := r.MarshalJSON()
@@ -32,7 +32,7 @@ func(m *Moka) doRequest(pdr PaymentDealerRequest, url string) (response Response
 
 	reader := bytes.NewReader(json)
 
-	req, err := http.NewRequest("POST", m.baseURL + url, reader)
+	req, err := http.NewRequest("POST", m.baseURL+url, reader)
 	if err != nil {
 		return
 	}
@@ -56,6 +56,6 @@ func(m *Moka) doRequest(pdr PaymentDealerRequest, url string) (response Response
 	}
 
 	err = response.Error()
-	
+
 	return
 }
