@@ -1,7 +1,7 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/emirmuminoglu/mokapos-go)](https://goreportcard.com/report/github.com/emirmuminoglu/mokapos-go)
 
 # mokapos-go
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/emirmuminoglu/mokapos-go)](https://goreportcard.com/report/github.com/emirmuminoglu/mokapos-go)
 
 A client library for *[Moka Pos](https://www.moka.com/moka-pos/)*
 
